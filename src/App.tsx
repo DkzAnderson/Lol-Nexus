@@ -6,9 +6,12 @@ function App() {
 
 
   return (
-    <main className="flex flex-col pt-[10vh] pb-24 items-center justify-center w-full min-h-screen bg-st">
+    <main className="flex flex-col pt-[10vh] pb-24 md:pt-20 items-center w-full min-h-screen bg-st">
       <NavBar/>
-      <Outlet/>
+      <div className="size-full max-w-[1024px]">
+        <Outlet/>
+      </div>
+      
     </main>
   )
 }

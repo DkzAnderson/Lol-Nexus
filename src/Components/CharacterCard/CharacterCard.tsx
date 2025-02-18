@@ -67,9 +67,9 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ data: champion, sh
     }
 
     const mosaicStyle = {
-        main: 'size-full grid border rounded border-transparent p-0.5 hover:border-interaction',
+        main: 'size-full grid grid-rows-[80%_20%] border rounded border-transparent p-0.5 hover:border-interaction',
         image: 'w-full object-contain',
-        title: 'text-lg font-bold text-center'
+        title: 'text-lg md:text-sm font-bold text-center truncate'
     }
 
     return (

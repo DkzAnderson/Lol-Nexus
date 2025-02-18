@@ -49,6 +49,8 @@ interface SkillsListProps {
 export const SkillsList: React.FC<SkillsListProps> = ({ skills }) => {
   const [index, setCurrentIndex] = useState<number>(0);
 
+  const skillLetter = ['P','Q','W','E','R']
+
   const imageSkillUrl = (image: string) => {
     const url = `${BASE_URL}/img/spell/${image}`;
     return url;
@@ -59,9 +61,10 @@ export const SkillsList: React.FC<SkillsListProps> = ({ skills }) => {
     return url;
   };
 
+
   return (
-    <div className="">
-      <ul className="grid grid-cols-5 w-full min-h-20 -mt-5 border-y-2 border-nd">
+    <div className="grid sm:grid-rows-[auto_80px] lg:grid-rows-[auto_90px] z-20">
+      <ul className="grid grid-cols-5 sm:row-start-2 w-full -mt-5 sm:mt-0 border-t-2 sm:border-none border-nd shadow-[0px_0px_6px_0px] shadow-nd sm:shadow-transparent">
         {skills.map((skill, i) => {
           let skillImage: string;
           if (skill.image.group === "passive") {
@@ -74,34 +77,42 @@ export const SkillsList: React.FC<SkillsListProps> = ({ skills }) => {
             <li
               key={i}
               className={`${
-                index === i ? "bg-nd p-2" : "bg-card-bg/75 p-3.5"
-              } w-full flex items-center justify-center transition-all ease-in-out duration-300`}
+                index === i ? "bg-nd p-2" : "bg-card-bg sm:bg-transparent p-3.5 sm:p-3"
+              } size-full sm:rounded-t-lg  relative flex items-center justify-center cursor-pointer sm:hover:bg-interaction transition-all ease-in-out duration-300`}
             >
-              <button onClick={() => setCurrentIndex(i)}>
+              <button 
+                onClick={() => setCurrentIndex(i)}
+                className="cursor-pointer "
+              >
                 <img
                   className={`size-full object-contain rounded-full`}
                   src={skillImage}
                   alt=""
                 />
               </button>
+              <span className={`absolute flex items-center justify-center bottom-0 right-0 size-5 ${index === i ? 'bg-white' : 'bg-nd'} duration-300`}>
+                <h1 className="font-bold">
+                  {skillLetter[i]}
+                </h1>
+              </span>
             </li>
           );
         })}
       </ul>
 
-      <div className="flex flex-col p-4 border-b-2 border-nd">
+      <div className="flex flex-col p-4 ">
         <h1 className="text-txt text-xl font-bold">{skills[index].name}</h1>
         {"cooldown" in skills[index] && skills[index].image.group === "spell" && (
           <span className="mb-5 flex gap-2">
             <h4 className="text-gray-400 text-sm">Cooldown</h4>
-            <ul className="flex">
+            <ul className="flex gap-0.5">
               {(skills[index] as Spell).cooldown.map((data: number, i: number) => {
                 let txt: any;
 
                 if (i >= (skills[index] as Spell).cooldown.length - 1) {
-                  txt = `${data}`;
+                  txt = `${data}s`;
                 } else {
-                  txt = `${data}/`;
+                  txt = `${data}s /`;
                 }
 
                 return (
@@ -115,7 +126,7 @@ export const SkillsList: React.FC<SkillsListProps> = ({ skills }) => {
         )}
 
         <p
-          className={`text-txt text-sm ${
+          className={`text-txt text-sm sm:max-h-64 overflow-auto ${
             skills[index].image.group === "passive" && "mt-5"
           }`}
         >

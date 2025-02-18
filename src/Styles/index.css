@@ -6,7 +6,7 @@
     font-family: "Roboto", serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6, p {
     font-family: "Montserrat", serif;
 }
 
@@ -22,3 +22,28 @@ h1,h2,h3,h4,h5,h6 {
     --color-txt: #FFFFFF;
     --color-interaction: #D4AF37;
 }  
+
+/* Ajusta la posición de la paginación */
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px !important; /* 10px desde el borde inferior */
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Estilos para los puntos de paginación */
+  .swiper-pagination-bullet {
+    background-color: white; /* Color de los puntos */
+    opacity: 0.5; /* Opacidad cuando no está activo */
+    margin: 0 5px; /* Espacio entre los puntos */
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Estilo para el punto activo */
+  .swiper-pagination-bullet-active {
+    background-color: #ff0000; /* Color del punto activo */
+    opacity: 1;
+  }
