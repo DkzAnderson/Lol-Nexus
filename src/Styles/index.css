@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+*{
+    font-family: "Roboto", serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Montserrat", serif;
+}
+
+@theme {
+
+    /* Fuentes */
+    --font-roboto: "Roboto", serif;
+    /* Colores */
+    --color-st: #0A0F28;
+    --color-nd: #5D8AA8 ;
+
+    --color-card-bg: #1C1E26;
+    --color-txt: #FFFFFF;
+    --color-interaction: #D4AF37;
+}  
