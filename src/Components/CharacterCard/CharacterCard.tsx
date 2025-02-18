@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getChampionDetails } from "../../Services/api";
+
 
 interface Champion {
     version: string;
@@ -58,10 +58,6 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ data: champion, sh
 
     const image = `https://ddragon.leagueoflegends.com/cdn/${champion.version}/img/champion/${champion.id.replace(/\s+/g, '_')}.png`;
 
-    const fetchChampionDetails = async (championId: string) => {
-        const details = await getChampionDetails(championId);
-        console.log(details);
-    };
 
     const listStyle = {
         main: 'size-full px-4 flex items-center gap-4 rounded border border-transparent p-0.5 hover:border-interaction',

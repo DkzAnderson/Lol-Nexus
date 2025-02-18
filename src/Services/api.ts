@@ -1,10 +1,79 @@
 
 export const BASE_URL = 'https://ddragon.leagueoflegends.com/cdn/12.8.1';
 
-interface ChampionData {
+interface ImageSkillorPassive{
+    full: string;
+    group: string;
+    sprite: string;
+    h: number;
+    w: number;
+    x: number;
+    y: number;
+}
+
+export interface Passive {
+  description: string;
+  image: ImageSkillorPassive;
+  name: string;
+  group: string;
+}
+
+interface Skin {
+  chromas: boolean;
   id: string;
   name: string;
+  num: number;
+}
+
+
+
+interface ChampionData {
+  allytips: string[];
+  blurb: string;
+  enemytips: string[];
+  id: string;
+  image:{
+    full: string;
+    group: string;
+    sprite: string;
+    h: number;
+    y: number;
+    x: number;
+    w: number;
+  };
+  info: any;
+  key:string;
+  lore: string;
+  name: string;
+  partype: string;
+  passive: Passive;
   spells: Spell[];
+  recommended: any;
+  skins: Skin[];
+  stats: {
+    "hp": number,
+    "hpperlevel": number,
+    "mp": number,
+    "mpperlevel": number,
+    "movespeed": number,
+    "armor": number,
+    "armorperlevel": number,
+    "spellblock": number,
+    "spellblockperlevel": number,
+    "attackrange": number,
+    "hpregen": number,
+    "hpregenperlevel": number,
+    "mpregen": number,
+    "mpregenperlevel": number,
+    "crit": number,
+    "critperlevel": number,
+    "attackdamage": number,
+    "attackdamageperlevel": number,
+    "attackspeedperlevel": number,
+    "attackspeed": number
+},
+tags: string[];
+title: string;
 }
 
 export interface Skill {
@@ -18,7 +87,7 @@ export interface Skill {
   effect: any[];
   effectBurn: any[];
   id: string;
-  image: string;
+  image: ImageSkillorPassive;
   leveltip: any[];
   maxammo: string;
   maxrank: number;
@@ -30,22 +99,11 @@ export interface Skill {
   vars: any;
 }
 
-export interface Passive {
-  description: string;
-  image: {
-    full: string;
-    group: string;
-    sprite: string;
-    h: number;
-    w: number;
-    x: number;
-    y: number;
-  }
-}
 
 
 
-interface Spell {
+
+export interface Spell {
   name: string;
   image: {
     full: string;

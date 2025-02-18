@@ -35,11 +35,14 @@ export const CharacterDetails = () => {
                 const data = await getChampionDetails(params.id)
                 let skills: any[] = data != undefined ? data.spells : [];
 
-                setSkins(data.skins)
-                console.log(data.skins)
-                data != undefined && skills.unshift(data.passive)
-                skills != undefined && setSkills(skills)
-                setChampionData(data)
+                console.log(data)
+                if(data != undefined){
+                    setSkins(data.skins)
+                    console.log(data.skins)
+                    data != undefined && skills.unshift(data.passive)
+                    skills != undefined && setSkills(skills)
+                    setChampionData(data)
+                }
 
             }
 
